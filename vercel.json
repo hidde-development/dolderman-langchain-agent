@@ -1,0 +1,19 @@
+{
+  "functions": {
+    "api/agent.js": {
+      "maxDuration": 300
+    },
+    "api/migrate.js": {
+      "maxDuration": 300
+    },
+    "api/redirects.js": {
+      "maxDuration": 300
+    },
+    "api/cms-export.js": {
+      "maxDuration": 60
+    },
+    "api/cms-import.js": {
+      "maxDuration": 300
+    }
+  }
+}
