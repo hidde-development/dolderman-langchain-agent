@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Env
+.env
+.env.local
+.env.*
+
+# MacOS
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
