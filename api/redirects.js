@@ -10,7 +10,7 @@ function checkAuth(req, res) {
   return true;
 }
 
-const model = new ChatAnthropic({ apiKey: process.env.Claude, model: 'claude-haiku-4-5-20251001', maxTokens: 4096, topP: 1 });
+const model = new ChatAnthropic({ apiKey: process.env.Claude, model: 'claude-haiku-4-5-20251001', maxTokens: 4096, topP: undefined });
 
 async function mapUrls(oldUrls, newUrls) {
   const batchSize = 50;
