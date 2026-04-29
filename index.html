@@ -835,8 +835,14 @@
         headers: authHeaders(),
         body: JSON.stringify({ url, pageType: pagetypeValue, keywords, brief, sources, style: styleValue, templateCode }),
       });
-      const data = await res.json();
-      if (!res.ok || !data.success) throw new Error(data.error || 'Onbekende fout');
+      const text = await res.text();
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch (parseErr) {
+        throw new Error('Server response kon niet worden gelezen als JSON: ' + text);
+      }
+      if (!res.ok || !data.success) throw new Error(data.error || data.message || 'Onbekende fout');
       document.getElementById('w-content').textContent = data.content;
       document.getElementById('w-output').classList.add('show');
       lastPage = data.page || { content: data.content };
