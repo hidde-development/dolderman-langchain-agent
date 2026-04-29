@@ -1,5 +1,7 @@
-import { createContentAgent } from '../lib/agent.js';
 import { runReview } from '../lib/review.js';
+import { writePageTool } from '../lib/tools/write-page.js';
+import { fetchUrlTool } from '../lib/tools/fetch-url.js';
+import { consolidateTool } from '../lib/tools/consolidate.js';
 
 export const config = { maxDuration: 300 };
 
@@ -9,20 +11,6 @@ function checkAuth(req, res) {
   const token = (req.headers['authorization'] || '').replace('Bearer ', '');
   if (token !== key) { res.status(401).json({ error: 'Unauthorized' }); return false; }
   return true;
-}
-
-function buildInput({ url, pageType, keywords, brief, sources, style, templateCode }) {
-  const tplLine = templateCode ? "\nKlantspecifieke template: " + templateCode + " (gebruik via write_page templateCode-veld)." : "";
-  return sources.length
-    ? "Consolideer de volgende " + sources.length + " bronpagina's en schrijf één sterke pagina.\nStijl: " + style + "\nURL: " + url + "\nPaginatype: " + pageType + "\nZoekwoorden: " + keywords + tplLine + "\nBronnen om op te halen: " + sources.join(", ")
-    : "Schrijf een " + pageType + ".\nStijl: " + style + "\nURL: " + url + "\nZoekwoorden: " + keywords + tplLine + "\nOpdracht: " + brief;
-}
-
-function extractPage(output) {
-  if (typeof output !== "string") return { content: String(output || "") };
-  const match = output.match(/\{[\s\S]*\}/);
-  if (!match) return { content: output };
-  try { return JSON.parse(match[0]); } catch { return { content: output }; }
 }
 
 export default async function handler(req, res) {
@@ -36,11 +24,30 @@ export default async function handler(req, res) {
   } = req.body || {};
 
   try {
-    const agent = createContentAgent();
-    // 1. Writer → v1
-    const v1 = await agent.invoke({ input: buildInput({ url, pageType, keywords, brief, sources, style, templateCode }) });
-    const pageV1 = extractPage(v1.output);
-    const contentV1 = pageV1.content || v1.output;
+    const sourceDocs = [];
+    if (Array.isArray(sources) && sources.length) {
+      for (const sourceUrl of sources) {
+        const fetchedRaw = await fetchUrlTool.func({ url: sourceUrl });
+        const fetched = typeof fetchedRaw === 'string' ? JSON.parse(fetchedRaw) : fetchedRaw;
+        if (!fetched.success) throw new Error('fetch_url_content failed for ' + sourceUrl + ': ' + fetched.error);
+        sourceDocs.push({ url: fetched.url, title: fetched.title, content: fetched.content });
+      }
+    }
+
+    let effectiveBrief = brief;
+    if (sourceDocs.length) {
+      const consolidatedRaw = await consolidateTool.func({ sources: sourceDocs, topic: pageType });
+      const consolidated = typeof consolidatedRaw === 'string' ? JSON.parse(consolidatedRaw) : consolidatedRaw;
+      if (!consolidated.success) throw new Error(consolidated.error || 'consolidate_sources failed');
+      effectiveBrief = consolidated.brief + '\n\nOpdracht:\n' + brief;
+    }
+
+    // 1. Writer → v1 using the structured write_page tool directly
+    const v1raw = await writePageTool.func({ brief: effectiveBrief, pageType, url, keywords, templateCode });
+    const v1 = typeof v1raw === 'string' ? JSON.parse(v1raw) : v1raw;
+    if (!v1.success) throw new Error(v1.error || 'write_page failed');
+    const pageV1 = v1.page || { content: '' };
+    const contentV1 = pageV1.content || '';
 
     // 2. Review (3 critics parallel + synthesizer)
     const review = await runReview({ content: contentV1, brief: { url, pageType, keywords, brief, style } });
@@ -51,13 +58,13 @@ export default async function handler(req, res) {
 
     // 3. Auto-revise bij oranje (max 1x)
     if (review.verdict === "orange" && review.revisionPrompt) {
-      const reviseInput = buildInput({ url, pageType, keywords, brief, sources, style, templateCode }) +
-        "\n\nREVISIE-INSTRUCTIE: " + review.revisionPrompt +
-        "\n\nBESTAANDE OUTPUT:\n" + contentV1;
-      const v2 = await agent.invoke({ input: reviseInput });
-      const pageV2 = extractPage(v2.output);
+      const revisedBrief = brief + "\n\nREVISIE-INSTRUCTIE: " + review.revisionPrompt + "\n\nBESTAANDE OUTPUT:\n" + contentV1;
+      const v2raw = await writePageTool.func({ brief: revisedBrief, pageType, url, keywords, templateCode });
+      const v2 = typeof v2raw === 'string' ? JSON.parse(v2raw) : v2raw;
+      if (!v2.success) throw new Error(v2.error || 'write_page revision failed');
+      const pageV2 = v2.page || { content: '' };
       finalPage = pageV2;
-      finalContent = pageV2.content || v2.output;
+      finalContent = pageV2.content || '';
       revised = true;
     }
 
