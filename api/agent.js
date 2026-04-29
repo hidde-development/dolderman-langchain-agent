@@ -11,10 +11,11 @@ function checkAuth(req, res) {
   return true;
 }
 
-function buildInput({ url, pageType, keywords, brief, sources, style }) {
+function buildInput({ url, pageType, keywords, brief, sources, style, templateCode }) {
+  const tplLine = templateCode ? "\nKlantspecifieke template: " + templateCode + " (gebruik via write_page templateCode-veld)." : "";
   return sources.length
-    ? "Consolideer de volgende " + sources.length + " bronpagina's en schrijf één sterke pagina.\nStijl: " + style + "\nURL: " + url + "\nPaginatype: " + pageType + "\nZoekwoorden: " + keywords + "\nBronnen om op te halen: " + sources.join(", ")
-    : "Schrijf een " + pageType + ".\nStijl: " + style + "\nURL: " + url + "\nZoekwoorden: " + keywords + "\nOpdracht: " + brief;
+    ? "Consolideer de volgende " + sources.length + " bronpagina's en schrijf één sterke pagina.\nStijl: " + style + "\nURL: " + url + "\nPaginatype: " + pageType + "\nZoekwoorden: " + keywords + tplLine + "\nBronnen om op te halen: " + sources.join(", ")
+    : "Schrijf een " + pageType + ".\nStijl: " + style + "\nURL: " + url + "\nZoekwoorden: " + keywords + tplLine + "\nOpdracht: " + brief;
 }
 
 function extractPage(output) {
@@ -31,12 +32,13 @@ export default async function handler(req, res) {
   const {
     url, pageType = "dienstpagina", keywords = "",
     brief = "", sources = [], style = "feitelijk",
+    templateCode = null,
   } = req.body || {};
 
   try {
     const agent = createContentAgent();
     // 1. Writer → v1
-    const v1 = await agent.invoke({ input: buildInput({ url, pageType, keywords, brief, sources, style }) });
+    const v1 = await agent.invoke({ input: buildInput({ url, pageType, keywords, brief, sources, style, templateCode }) });
     const pageV1 = extractPage(v1.output);
     const contentV1 = pageV1.content || v1.output;
 
@@ -49,7 +51,7 @@ export default async function handler(req, res) {
 
     // 3. Auto-revise bij oranje (max 1x)
     if (review.verdict === "orange" && review.revisionPrompt) {
-      const reviseInput = buildInput({ url, pageType, keywords, brief, sources, style }) +
+      const reviseInput = buildInput({ url, pageType, keywords, brief, sources, style, templateCode }) +
         "\n\nREVISIE-INSTRUCTIE: " + review.revisionPrompt +
         "\n\nBESTAANDE OUTPUT:\n" + contentV1;
       const v2 = await agent.invoke({ input: reviseInput });

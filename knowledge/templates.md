@@ -38,18 +38,6 @@ Bewustwording → Probleem → Oplossing → Bewijs → Conversie
 | Waarom Dolderman Letselschade Advocaten voor [dienst]? | ≤3 feitelijk onderbouwde argumenten |
 | [CTA-kop] | Eén CTA |
 
-Extra intake (vóór schrijven, naast standaard):
-- Begint de tekst bij de situatie van de lezer (Waarom)?
-- Pas je de aanspreekvorm jij/je consequent toe?
-- Zijn alle zinnen actief en stellig? Niet passief, geen aarzeling?
-- Is het taalgebruik B1: korte zinnen, gewone woorden?
-- Is elk juridisch begrip direct uitgelegd?
-- Zijn afkortingen bij eerste gebruik voluit geschreven?
-- Geen emoji's?
-- Geen 'slachtoffer' of 'herstel' in de tekst?
-- Volgt de tekst de structuur: Waarom → Hoe → Wat?
-- Eindigt de tekst met een concrete stap of actie voor de lezer?
-
 ### Productpagina
 
 | Kop | Doel |
@@ -60,13 +48,6 @@ Extra intake (vóór schrijven, naast standaard):
 | [Product] vs. [alternatief]: wat is het verschil? | Vergelijkingstabel |
 | Hoe vraag ik [product] aan of bestel ik het? | Kort proces + CTA |
 
-Extra intake (vóór schrijven, naast standaard):
-- Wat zijn de specificaties van dit product?
-- Welke varianten of opties zijn er?
-- Wat is de prijs of prijsrange?
-- Wat onderscheidt dit product van directe alternatieven?
-- Is er een handleiding of technisch document beschikbaar?
-
 ### Artikelpagina
 
 | Kop | Doel |
@@ -74,18 +55,6 @@ Extra intake (vóór schrijven, naast standaard):
 | [Hoofdvraag] | Direct antwoord ≤150 woorden, featured snippet |
 | [Subvraag 1..N] | Verdieping per deelonderwerp |
 | Conclusie: [kernboodschap] | ≤100 woorden + ≥1 link naar product/dienst |
-
-Extra intake (vóór schrijven, naast standaard):
-- Begint de tekst bij de situatie van de lezer (Waarom)?
-- Pas je de aanspreekvorm jij/je consequent toe?
-- Zijn alle zinnen actief en stellig? Niet passief, geen aarzeling?
-- Is het taalgebruik B1: korte zinnen, gewone woorden?
-- Is elk juridisch begrip direct uitgelegd?
-- Zijn afkortingen bij eerste gebruik voluit geschreven?
-- Geen emoji's?
-- Geen 'slachtoffer' of 'herstel' in de tekst?
-- Volgt de tekst de structuur: Waarom → Hoe → Wat?
-- Eindigt de tekst met een concrete stap of actie voor de lezer?
 
 ## GEO-proof product/dienstpagina
 
@@ -154,11 +123,6 @@ Voor testimonials, reviewblokken, quotes op landingspagina's.
 | Quote | Letterlijk, ≤60 woorden |
 | Naam + functie | Voornaam + achternaam, functietitel, evt. organisatie |
 | Resultaat (optioneel) | Eén getal/feit, visueel losstaand |
-
-Extra intake (vóór schrijven, naast standaard):
-- Wat is de letterlijke quote van de klant?
-- Naam, functie en organisatie van de bron?
-- Is er een concreet resultaat of getal te vermelden bij de quote?
 
 NIET DOEN bij case/social-proof:
 - Zoekwoorden in koppen/eerste zinnen forceren

@@ -49,12 +49,14 @@ Beschrijvende ankertekst:
 
 ## Interne linking
 
-- Raadpleeg `XML sitemap - Dolderman Letselschade.xml` vóór schrijven. Ontbreekt → melden, geen links.
+URL-bronnen: hoofdpagina's onderaan dit bestand, productpagina's in `knowledge.md`. Geen sitemap.xml runtime te lezen.
+
 - Bovenliggende pagina = URL minus laatste slug. Ankertekst = paginanaam of primair zoekwoord.
 - Max 5 clusterlinks per pagina, alleen inhoudelijk passend.
 - Artikel/expertise: ≥1 link naar logische product-/dienstpagina.
 - Ankertekst beschrijvend. Nooit "hier", "klik hier", kale URL.
 - Externe links: alleen officiële bronnen. Nooit concurrenten.
+- URL niet in lijsten? Niet linken — geen URL's verzinnen.
 
 ## Alinea + kop
 
@@ -66,7 +68,7 @@ Beschrijvende ankertekst:
 
 ## Hoofdpagina's voor interne linking
 
-Onderstaande URL's zijn TOEKOMSTIG (nieuwe site / migratie). Schrijf alsof ze al bestaan.
+Onderstaande URL's zijn LIVE.
 
 Gebruik als ankerpunt. Kies meest inhoudelijk relevante URL.
 

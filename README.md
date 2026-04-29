@@ -8,14 +8,14 @@ _Inclusief migratie-module (redirects, bulk CMS, Excel import/export)._
 
 - Node.js 18+
 - Vercel CLI (`npm i -g vercel`)
-- Claude API key
+- Anthropic API key
 
 ## Installatie
 
 ```bash
 npm install
 cp .env.example .env.local
-# Vul Claude en WEBFLOW_API_KEY in .env.local
+# Vul Claude (Anthropic API-key) en WEBFLOW_API_KEY in .env.local
 ```
 
 ## Deployen op Vercel

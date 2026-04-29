@@ -6,14 +6,14 @@ je/jij — consequent, geen wisseling tussen secties of paginatypen.
 
 ## Tone of voice
 
-- Toon: Daadkrachtig, menselijk en direct. Begint bij de situatie van de lezer, erkent het onrecht, schakelt snel naar concrete actie. Warm maar niet sentimenteel, strijdbaar maar niet agressief. Passie uit zich in sterke werkwoorden en betrokkenheid, niet in uitroeptekens.
-- Vermijd: Passieve constructies, juridisch vakjargon zonder uitleg, clichés, superlatieven, twijfeltaal, afstandelijke of formele toon, schrijven vanuit het kantoor in plaats van vanuit de lezer
-- Vakjargon: branche-specifiek
+- Toon: Daadkrachtig, warm en direct. Begin bij de situatie van de lezer, erken het onrecht, schakel dan door naar een concrete oplossing. Actief taalgebruik, sterke werkwoorden, menselijk maar strijdbaar. Passie uit zich in betrokkenheid en concreetheid, niet in uitroeptekens.
+- Vermijd: Passieve constructies, juridisch vakjargon zonder uitleg, clichés, superlatieven, afstandelijke of formele toon, twijfeltaal, grote tekstblokken zonder structuur
+- Vakjargon: minimaal
 - Vakbegrip eerste gebruik: korte toelichting tussen haakjes of in de zin.
 
 ## Merkwaarden
 
-daadkracht, vindingrijkheid, verbindend, ontzorgend, authentiek, passie
+Daadkracht, Vindingrijkheid, Verbindend, Ontzorgend, Authentiek, Passie
 
 Impliciet verwerken. Nooit letterlijk noemen.
 
@@ -21,50 +21,69 @@ Impliciet verwerken. Nooit letterlijk noemen.
 
 Elke pagina sluit aan bij ≥1 pijler.
 
-**Daadkracht** — Teksten zijn actief en stellig geschreven; DLSA neemt initiatief en zet door waar anderen stoppen.
-**Vindingrijkheid** — Expertise wordt concreet getoond met specifieke situaties en domeinen, en DLSA wordt gepositioneerd als partij die altijd een weg vooruit vindt.
-**Verbindend** — De persoon staat centraal, niet het dossier; de belofte 'schouder aan schouder' is voelbaar in toon en woordkeuze.
-**Ontzorgend** — Kosten, tijdsduur en kans van slagen worden proactief benoemd; juridisch jargon wordt altijd direct uitgelegd in gewone taal.
-**Authentiek** — Teksten lezen als gesproken taal: direct, helder, zonder omhaal en zonder clichés.
-**Passie** — Gedrevenheid door rechtvaardigheid is voelbaar via sterke werkwoorden en betrokkenheid, niet via uitroeptekens of superlatieven.
+**Daadkracht** — Schrijf actief en stellig met sterke werkwoorden; laat voelen dat DLSA initiatief neemt en niet afwacht.
+**Vindingrijkheid** — Toon expertise concreet door specifieke situaties, regelgeving en dossierkennis te benoemen in plaats van vage algemeenheden.
+**Verbindend** — Stel de persoon centraal, niet het dossier; de belofte 'schouder aan schouder' moet voelbaar zijn in de toon.
+**Ontzorgend** — Benoem kosten, tijdsduur en kans van slagen proactief en leg juridisch jargon altijd direct uit in gewone taal.
+**Authentiek** — Schrijf direct en zonder omhaal, vermijd clichés en spreek zoals je zou praten.
+**Passie** — Laat voelen dat rechtvaardigheid een overtuiging is, niet een dienst; uit dit via betrokken woordkeuze en concreetheid.
 
 ## Kernuitkomsten
 
-- Eerlijke compensatie ontvangen voor wat je is overkomen
-- Juridische strijd uit handen gegeven zodat je je kunt richten op je welzijn
-- Helderheid en overzicht in een complex juridisch proces, zodat je altijd weet waar je aan toe bent
+- De lezer krijgt eerlijke compensatie voor wat hem is overkomen
+- Het juridische werk wordt volledig uit handen genomen zodat de lezer zich kan richten op zijn welzijn
+- De lezer weet precies waar hij aan toe is: transparantie over kosten, proces en verwachtingen
 
 ## Redactionele invalshoek
 
-- Volg de Golden Circle-structuur: begin bij het waarom (de situatie en het onrecht), dan hoe DLSA werkt, dan wat DLSA concreet doet
-- Erken de emotionele situatie van de lezer vóórdat je informeert of overtuigt, en schakel daarna door naar een daadkrachtige oplossing
+- Volg altijd de Waarom → Hoe → Wat structuur: begin bij de drijfveer en het onrecht, dan de aanpak, dan het aanbod
+- Erken de situatie van de lezer vóórdat je informeert of overtuigt; menselijkheid gaat voor procedure
 
 ## Merktermen
 
 Verwerk 2–3 per pagina, natuurlijk. Niet gestapeld of geforceerd.
 
-**letselschade advocaat** — Kernassociatie van het merk, passend op elke pagina van de website van DLSA als beschrijving van wie ze zijn en wat ze doen
-**letselschade** — Het brede vakgebied waarop DLSA actief is; relevant op elke pagina als merkverankerende zoekentiteit
-**schadevergoeding** — De centrale uitkomst die cliënten zoeken; breed inzetbaar op elke dienstpagina, artikel of landingspagina
-**smartengeld** — Een kernbegrip binnen letselschade dat breed terugkomt in uitleg, diensten en artikelen op de hele site
-**juridische hulp** — Omschrijft het aanbod van DLSA op het hoogste niveau; past op homepage, dienstpagina's en informatieve artikelen
-**letselschade specialist** — Positioneringsterm die expertise benadrukt; breed inzetbaar als merkassociatie op alle paginatypen
-**letselschade vergoeding** — Verbindt het probleem van de lezer met de uitkomst die DLSA biedt; past op elke pagina als brede zoekentiteit
-**letselschade procedure** — Beschrijft het proces dat cliënten doorlopen; breed inzetbaar op informatieve en dienstpagina's
+**letselschade advocaat** — De primaire merkassociatie van DLSA; past op homepage, alle dienstpagina's en informatieve artikelen
+**letselschade** — Het brede kerndomein van DLSA; elke pagina raakt aan dit onderwerp
+**schadevergoeding** — De centrale uitkomst die cliënten zoeken; past als merkterm op elke pagina over rechten, procedures en resultaten
+**smartengeld berekenen** — Een breed herkenbare term voor de doelgroep die op informatieve, dienst- en landingspagina's inzetbaar is
+**juridische bijstand** — Omschrijft het type hulp dat DLSA biedt en past op elke pagina ongeacht doelgroep of schadesituatie
+**letselschade claimen** — Beschrijft de actie die de doelgroep wil ondernemen; breed inzetbaar als merkassociatie over alle paginatypen
+**letselschade specialist** — Positioneert DLSA als expert en past zowel op de homepage als op specifieke dienst- en artikelpagina's
+
+## Verplichte entiteiten (uit SEO-strategie)
+
+13 brede termen voor merkkoppeling in AI-zoekresultaten (AEO/GEO). Verwerk minimaal 2-3 per pagina, natuurlijk, niet gestapeld:
+
+- letselschade
+- letselschadeadvocaat
+- jurist
+- advocaat
+- smartengeld
+- berekenen
+- aansprakelijkheid
+- schadevergoeding
+- vergoeding
+- schadeclaim
+- immateriele schade
+- beroepsziekte
+- letsel
+
+Deze hebben voorrang op de algemene Merktermen-lijst hieronder bij conflict.
 
 ## Doelgroep
 
-- Rol: Civiele letselschadecliënten en ambtenaren (militairen, politieagenten, brandweerlieden) met letselschade door werkgerelateerde incidenten
-- Sector: Particulieren en publieke sector (defensie, politie, brandweer)
+- Rol: Civiele letselschadecliënten en ambtenaren (militairen, politieagenten, brandweerlieden) met beroepsgerelateerde letselschade
+- Sector: Particulieren en publieke sector / defensie
 - Kennisniveau: beginner
 
 Zorgen:
-- Alleen staan tegenover grote organisaties en verzekeraars met complexe regels en juridisch vakjargon
-- Financiële onhaalbaarheid van juridische hulp en onzekerheid over kosten, tijdsduur en kans van slagen
+- Alleen staan tegenover grote organisaties, verzekeraars of werkgevers met juridische macht en middelen
+- Niet weten waar ze aan toe zijn: kosten, tijdsduur, kans van slagen en het juridische proces zijn onbekend en overweldigend
 
-Vocabulaire (taal van de doelgroep): Wat heb ik recht op? Hoe lang duurt dit? Wat kost het me? Ik weet niet waar ik moet beginnen. Niemand luistert naar me. Het systeem werkt niet voor mij. Ik sta er alleen voor.
+Vocabulaire (taal van de doelgroep): Hoe kom ik aan mijn geld, wat zijn mijn rechten, wat kost dit mij, mijn werkgever laat me in de steek, ik sta alleen tegenover een grote organisatie, ik weet niet waar ik moet beginnen
 
-Wantrouwen (vereist extra onderbouwing): Beloftes over maximale vergoeding zonder onderbouwing, advocaten die alleen geïnteresseerd zijn in het dossier en niet in de persoon, vage uitspraken over kosten of kansen, kantoren die klinken als grote organisaties
+Wantrouwen (vereist extra onderbouwing): Beloftes over maximale uitkomsten zonder onderbouwing, onduidelijkheid over kosten en kans van slagen, advocaten die afstandelijk of procesgericht overkomen in plaats van mensgericht
 
 ## Verboden woorden
 
@@ -81,7 +100,7 @@ Nooit gebruiken:
 - wij streven ernaar
 - de beste keuze
 - u bent bij ons in goede handen
-- er wordt gekeken
+- gespecialiseerd in
 
 ## Stijldocumenten
 

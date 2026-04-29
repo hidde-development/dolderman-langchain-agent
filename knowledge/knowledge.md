@@ -4,16 +4,19 @@ ALLEEN onderstaande bronnen + gegevens gebruiken. Verzin geen feiten. Ontbrekend
 
 ## Productcatalogus
 
-URL's = toekomstige URL’s (nieuwe website / migratie).
+URL's = huidige live URL’s.
 
-**Letselschade juridische hulp**
-Hoogwaardige juridische bijstand voor wie letselschade heeft opgelopen, ook als dat financieel aanvankelijk onhaalbaar lijkt
+**Letselschade juridische bijstand — particulier** — [https://dlsa.nl/jouw-situatie/particulier](https://dlsa.nl/jouw-situatie/particulier)
+Juridische vertegenwoordiging voor mensen die letselschade hebben opgelopen door een verkeersongeval, val of andere externe oorzaak, gericht op eerlijke compensatie en volledig ontzorgen
 
-**Letselschade voor civiele cliënten**
-Juridische ondersteuning voor mensen met letselschade door verkeersongevallen, vallen of andere externe oorzaken, gericht op eerlijke compensatie
+**Letselschade juridische bijstand — ambtenaren en defensie** — [https://dlsa.nl/jouw-situatie/defensie](https://dlsa.nl/jouw-situatie/defensie)
+Gespecialiseerde juridische bijstand voor militairen met beroepsgerelateerde letselschade in conflict met hun werkgever
 
-**Letselschade voor ambtenaren**
-Juridische bijstand voor militairen, politieagenten en brandweerlieden met letselschade opgelopen in functie, gericht op het aanpakken van werkgevers die hun plicht niet nakomen
+**Letselschade juridische bijstand — politie** — [https://dlsa.nl/jouw-situatie/politie](https://dlsa.nl/jouw-situatie/politie)
+Gespecialiseerde juridische bijstand voor politieagenten met beroepsgerelateerde letselschade in conflict met hun werkgever
+
+**Letselschade juridische bijstand — brandweer** — [https://dlsa.nl/jouw-situatie/brandweer](https://dlsa.nl/jouw-situatie/brandweer)
+Gespecialiseerde juridische bijstand voor brandweerlieden met beroepsgerelateerde letselschade in conflict met hun werkgever
 ---
 
 ## URL-hiërarchie & clusters
@@ -68,7 +71,7 @@ Gebruik deze structuur voor correcte ouderpage-links en clusterlinks.
 
 1. Wetgeving (hoogste prioriteit, conflict-winner):
 - rechtspraak.nl
-- wetten.nl
+- dlsa.nl
 
 2. Interne kennisbank:
 _Niet opgegeven_
@@ -77,3 +80,4 @@ _Niet opgegeven_
 
 **4. Vertrouwde externe bronnen**
 - Letselschaderaad
+- wetten.nl
