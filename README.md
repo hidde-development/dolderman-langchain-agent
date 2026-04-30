@@ -55,7 +55,18 @@ Geeft de inhoud van `vercel.json` terug als string (`content`) plus de gematchte
 ```json
 { "collectionId": "optional", "format": "excel" }
 ```
-Geeft `{ base64, filename, rows, columns }` terug. Decodeer base64 om de Excel te downloaden.
+Response bevat `{ base64, filename, rows, columns }`. Decodeer base64 om de Excel te downloaden.
+
+### `POST /api/export-pages` — Exporteer pagina’s naar Excel (direct download)
+```json
+{
+  "pages": [
+    { "slug": "...", "meta_title": "...", "meta_description": "...", "content": "..." }
+  ],
+  "filename": "generated-pages.xlsx"
+}
+```
+Deze route geeft een echte `.xlsx` download terug met `Content-Disposition`.
 
 ### `POST /api/cms-import` — Excel/CSV importeren in CMS (met continuation token)
 ```json
