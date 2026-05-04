@@ -4,19 +4,19 @@ ALLEEN onderstaande bronnen + gegevens gebruiken. Verzin geen feiten. Ontbrekend
 
 ## Productcatalogus
 
-URL's = huidige live URL’s.
+URL's = toekomstige URL’s (nieuwe website / migratie).
 
-**Letselschade juridische bijstand — particulier** — [https://dlsa.nl/jouw-situatie/particulier](https://dlsa.nl/jouw-situatie/particulier)
-Juridische vertegenwoordiging voor mensen die letselschade hebben opgelopen door een verkeersongeval, val of andere externe oorzaak, gericht op eerlijke compensatie en volledig ontzorgen
+**Letselschade juridische hulp (civiel)** — [https://dlsa.nl/jouw-situatie/particulier](https://dlsa.nl/jouw-situatie/particulier)
+Juridische bijstand voor mensen die letselschade opliepen door een verkeersongeval, val of andere externe oorzaak — ook als juridische hulp financieel onhaalbaar lijkt
 
-**Letselschade juridische bijstand — ambtenaren en defensie** — [https://dlsa.nl/jouw-situatie/defensie](https://dlsa.nl/jouw-situatie/defensie)
-Gespecialiseerde juridische bijstand voor militairen met beroepsgerelateerde letselschade in conflict met hun werkgever
+**Letselschade juridische hulp - Defensie** — [https://dlsa.nl/jouw-situatie/defensie](https://dlsa.nl/jouw-situatie/defensie)
+Juridische bijstand voor militairen die letselschade opliepen in de uitoefening van hun functie en in conflict zijn met hun werkgever
 
-**Letselschade juridische bijstand — politie** — [https://dlsa.nl/jouw-situatie/politie](https://dlsa.nl/jouw-situatie/politie)
-Gespecialiseerde juridische bijstand voor politieagenten met beroepsgerelateerde letselschade in conflict met hun werkgever
+**Letselschade juridische hulp - Politie** — [https://dlsa.nl/jouw-situatie/politie](https://dlsa.nl/jouw-situatie/politie)
+Juridische bijstand voor politieagenten en andere ambtenaren die letselschade opliepen in de uitoefening van hun functie en in conflict zijn met hun werkgever
 
-**Letselschade juridische bijstand — brandweer** — [https://dlsa.nl/jouw-situatie/brandweer](https://dlsa.nl/jouw-situatie/brandweer)
-Gespecialiseerde juridische bijstand voor brandweerlieden met beroepsgerelateerde letselschade in conflict met hun werkgever
+**Letselschade juridische hulp - Brandweer** — [https://dlsa.nl/jouw-situatie/brandweer](https://dlsa.nl/jouw-situatie/brandweer)
+Juridische bijstand voor politieagenten en andere ambtenaren die letselschade opliepen in de uitoefening van hun functie en in conflict zijn met hun werkgever
 ---
 
 ## URL-hiërarchie & clusters
@@ -71,13 +71,8 @@ Gebruik deze structuur voor correcte ouderpage-links en clusterlinks.
 
 1. Wetgeving (hoogste prioriteit, conflict-winner):
 - rechtspraak.nl
-- dlsa.nl
-
-2. Interne kennisbank:
-_Niet opgegeven_
+- wetten.nl
 
 3. Gebruikersinput: vult aan, overschrijft wetgeving nooit.
-
 **4. Vertrouwde externe bronnen**
 - Letselschaderaad
-- wetten.nl

@@ -194,9 +194,19 @@
     .output-label { font-size: 13px; font-weight: 600; color: var(--dark-grey); }
     .output-content {
       padding: 20px; font-size: 14px; line-height: 1.7;
-      white-space: pre-wrap; font-family: monospace; max-height: 500px;
-      overflow-y: auto; color: var(--near-black);
+      max-height: 500px; overflow-y: auto; color: var(--near-black);
     }
+    .output-content h1 { font-size: 20px; font-weight: 700; margin: 0 0 12px; }
+    .output-content h2 { font-size: 16px; font-weight: 600; margin: 20px 0 8px; color: var(--dark-grey); }
+    .output-content h3 { font-size: 14px; font-weight: 600; margin: 14px 0 6px; }
+    .output-content h4 { font-size: 13px; font-weight: 600; margin: 10px 0 4px; }
+    .output-content p  { margin: 0 0 10px; }
+    .output-content ul, .output-content ol { padding-left: 22px; margin: 0 0 10px; }
+    .output-content li { margin-bottom: 4px; }
+    .output-content hr { border: none; border-top: 1px solid var(--light-grey); margin: 18px 0; }
+    .output-content code { background: var(--off-white); border-radius: 3px; padding: 1px 5px; font-family: monospace; font-size: 12px; }
+    .output-content strong { font-weight: 600; }
+    .output-content.raw-mode { font-family: monospace; white-space: pre-wrap; font-size: 12px; }
     .status-bar {
       padding: 12px 16px; border-radius: 8px; font-size: 14px;
       margin-top: 12px; display: none;
@@ -205,6 +215,7 @@
     .status-bar.info { background: var(--purple-light); color: var(--purple); }
     .status-bar.success { background: #E6F7EE; color: #1A7A45; }
     .status-bar.error { background: #FEE8E8; color: #C0392B; }
+    .status-bar.warn  { background: #FFF8E1; color: #92400E; }
 
     .progress-wrap { margin-top: 16px; display: none; }
     .progress-wrap.show { display: block; }
@@ -222,8 +233,32 @@
     .result-dot.ok { background: #27AE60; }
     .result-dot.err { background: #E74C3C; }
     .result-url { font-weight: 600; flex: 1; }
-    .result-body { display: none; padding: 14px; font-size: 13px; font-family: monospace; white-space: pre-wrap; border-top: 1px solid var(--light-grey); max-height: 300px; overflow-y: auto; }
+    .result-body { display: none; padding: 14px; font-size: 13px; line-height: 1.6; border-top: 1px solid var(--light-grey); max-height: 300px; overflow-y: auto; }
     .result-body.open { display: block; }
+    .result-body h1 { font-size: 16px; font-weight: 700; margin: 0 0 8px; }
+    .result-body h2 { font-size: 14px; font-weight: 600; margin: 12px 0 6px; color: var(--dark-grey); }
+    .result-body h3, .result-body h4 { font-size: 13px; font-weight: 600; margin: 8px 0 4px; }
+    .result-body p  { margin: 0 0 8px; }
+    .result-body ul, .result-body ol { padding-left: 18px; margin: 0 0 8px; }
+    .result-body li { margin-bottom: 3px; }
+    .result-body hr { border: none; border-top: 1px solid var(--light-grey); margin: 10px 0; }
+    .result-body code { background: var(--off-white); border-radius: 3px; padding: 1px 4px; font-family: monospace; font-size: 11px; }
+    .result-body strong { font-weight: 600; }
+
+    /* Bulk page selector */
+    .bulk-toolbar { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+    .bulk-toolbar .btn-secondary { padding: 6px 14px; font-size: 12px; border-radius: 7px; }
+    .bulk-toolbar input { flex: 1; min-width: 140px; font-size: 12px; padding: 6px 10px; border: 1px solid var(--light-grey); border-radius: 7px; font-family: inherit; outline: none; }
+    .bulk-toolbar input:focus { border-color: var(--purple); }
+    .sel-count { font-size: 12px; color: var(--mid-grey); white-space: nowrap; }
+    .page-list { max-height: 220px; overflow-y: auto; border: 1px solid var(--light-grey); border-radius: 8px; background: white; }
+    .page-list-item { display: flex; align-items: center; gap: 10px; padding: 7px 12px; border-bottom: 1px solid var(--light-grey); font-size: 12px; cursor: pointer; user-select: none; }
+    .page-list-item:last-child { border-bottom: none; }
+    .page-list-item:hover { background: var(--off-white); }
+    .page-list-item input[type=checkbox] { flex-shrink: 0; cursor: pointer; accent-color: var(--purple); }
+    .pl-url { flex: 1; font-family: monospace; font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .tpl-badge { font-size: 10px; background: var(--purple-light); color: var(--purple); padding: 2px 6px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; font-weight: 600; }
+    .pl-kw { font-size: 11px; color: var(--mid-grey); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 130px; }
 
     .api-card {
       background: white; border-radius: 16px; padding: 28px 32px;
@@ -299,6 +334,16 @@
     .report-summary { color: var(--dark-grey); font-weight: 400; font-size: 13px; }
     .report-body { display: none; padding: 0 16px 16px; }
     .report-body.open { display: block; }
+    /* Checklist-stijl voor critic-rapporten */
+    .revised-note { background: #E6F7EE; border-radius: 6px; padding: 8px 12px; font-size: 12px; color: #1A7A45; margin-bottom: 10px; }
+    .check-item { display: flex; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--light-grey); align-items: flex-start; }
+    .check-item:last-child { border-bottom: none; }
+    .check-icon { font-size: 15px; flex-shrink: 0; line-height: 1.4; }
+    .check-text { flex: 1; min-width: 0; }
+    .check-text strong { display: block; font-size: 13px; font-weight: 600; color: var(--near-black); margin-bottom: 2px; }
+    .check-text span { font-size: 12px; color: var(--dark-grey); line-height: 1.5; }
+    .check-empty { font-size: 13px; color: var(--mid-grey); padding: 8px 0; }
+    /* Oud: behoud voor eventuele backward compat */
     .flag {
       padding: 10px 12px; border-radius: 8px; margin-top: 8px; font-size: 13px;
       border-left: 3px solid var(--mid-grey);
@@ -416,6 +461,7 @@
       </div>
       <button class="btn-primary" onclick="schrijfPagina(this)">Schrijf pagina</button>
       <div class="status-bar" id="w-status"></div>
+      <div class="status-bar" id="w-source-warn"></div>
       <div id="w-verdict-wrap" style="display:none">
         <div class="verdict-bar" id="w-verdict">
           <div class="verdict-dot" id="w-verdict-dot"></div>
@@ -430,7 +476,10 @@
       <div class="output-box" id="w-output">
         <div class="output-header">
           <span class="output-label">Gegenereerde pagina</span>
-          <button class="btn-secondary" onclick="copyOutput('w-content')">Kopieer</button>
+          <div style="display:flex;gap:8px">
+            <button class="btn-secondary" id="w-raw-btn" onclick="toggleRawContent()" title="Schakel tussen rendered preview en raw markdown">Raw</button>
+            <button class="btn-secondary" onclick="copyOutput('w-content')">Kopieer markdown</button>
+          </div>
         </div>
         <div class="output-content" id="w-content"></div>
       </div>
@@ -454,7 +503,17 @@
         <strong>Gebruik dit voor:</strong> het herschrijven van een complete website of een sectie. De agent werkt door de lijst heen en toont per batch de voortgang. Je kunt hem tussendoor stoppen.
       </div>
 
-      <div class="form-row">
+      <div id="m-sheet-selector" style="display:none">
+        <div class="bulk-toolbar">
+          <button class="btn-secondary" onclick="toggleAllPages(true)">Alles</button>
+          <button class="btn-secondary" onclick="toggleAllPages(false)">Geen</button>
+          <input type="text" id="m-page-filter" placeholder="Filter op URL of template…" oninput="filterBulkPages(this.value)" />
+          <span class="sel-count" id="m-sel-count"></span>
+        </div>
+        <div class="page-list" id="m-page-list"></div>
+        <div class="hint" style="margin-top:8px">Zoekwoorden en template komen per pagina uit het planningssheet.</div>
+      </div>
+      <div class="form-row" id="m-urls-wrap">
         <label>URL's om te herschrijven</label>
         <div class="hint">Één URL per regel.</div>
         <textarea id="m-urls" class="mono" rows="6" placeholder="https://dlsa.nl/diensten&#10;https://dlsa.nl/diensten/voorbeeld-dienst&#10;https://dlsa.nl/over-ons"></textarea>
@@ -467,7 +526,7 @@
           <button class="btn-opt" data-value="overig" onclick="selectMigratePagetype(this)">Overig</button>
         </div>
       </div>
-      <div class="form-row">
+      <div class="form-row" id="m-keywords-row">
         <label>Zoekwoorden (optioneel, voor alle pagina's)</label>
         <input type="text" id="m-keywords" placeholder="primair zoekwoord, secundair zoekwoord" />
       </div>
@@ -725,7 +784,64 @@
   }
 
   function copyOutput(id) {
-    navigator.clipboard.writeText(document.getElementById(id).textContent);
+    const el = document.getElementById(id);
+    navigator.clipboard.writeText(el.dataset.raw || el.textContent || '');
+  }
+
+  // Minimale markdown → HTML renderer (geen externe afhankelijkheid)
+  function renderMd(md) {
+    if (!md) return '';
+    const safe = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    const inline = s => safe(s)
+      .replace(/***(.+?)***/g,'<strong><em>$1</em></strong>')
+      .replace(/**(.+?)**/g,'<strong>$1</strong>')
+      .replace(/*([^*
+]+?)*/g,'<em>$1</em>')
+      .replace(/`([^`
+]+?)`/g,'<code>$1</code>');
+
+    const lines = md.split('
+');
+    const out = [];
+    let inUl = false, inOl = false, pBuf = [];
+
+    const flushP = () => { if (pBuf.length) { out.push('<p>' + pBuf.join(' ') + '</p>'); pBuf = []; } };
+    const closeUl = () => { if (inUl) { out.push('</ul>'); inUl = false; } };
+    const closeOl = () => { if (inOl) { out.push('</ol>'); inOl = false; } };
+    const closeLists = () => { closeUl(); closeOl(); };
+
+    for (const raw of lines) {
+      const t = raw.trim();
+      if (!t) { flushP(); closeLists(); continue; }
+      const hm = t.match(/^(#{1,4})s+(.+)/);
+      if (hm) { flushP(); closeLists(); out.push('<h' + hm[1].length + '>' + inline(hm[2]) + '</h' + hm[1].length + '>'); continue; }
+      if (/^---+$/.test(t)) { flushP(); closeLists(); out.push('<hr>'); continue; }
+      const ulm = t.match(/^[-*]s+(.*)/);
+      if (ulm) { flushP(); closeOl(); if (!inUl) { out.push('<ul>'); inUl = true; } out.push('<li>' + inline(ulm[1]) + '</li>'); continue; }
+      const olm = t.match(/^d+.s+(.*)/);
+      if (olm) { flushP(); closeUl(); if (!inOl) { out.push('<ol>'); inOl = true; } out.push('<li>' + inline(olm[1]) + '</li>'); continue; }
+      closeLists();
+      pBuf.push(inline(t));
+    }
+    flushP(); closeLists();
+    return out.join('
+');
+  }
+
+  let _rawMode = false;
+  function toggleRawContent() {
+    _rawMode = !_rawMode;
+    const el = document.getElementById('w-content');
+    const btn = document.getElementById('w-raw-btn');
+    if (_rawMode) {
+      el.textContent = el.dataset.raw || '';
+      el.classList.add('raw-mode');
+      btn.textContent = 'Rendered';
+    } else {
+      el.innerHTML = renderMd(el.dataset.raw || '');
+      el.classList.remove('raw-mode');
+      btn.textContent = 'Raw';
+    }
   }
 
   // ── Sheet-picker: autocomplete + briefing-load ──
@@ -745,6 +861,72 @@
         : p.url;
       return '<option value="' + escHtml(p.url) + '">' + escHtml(label) + '</option>';
     }).join('');
+    // Also populate the bulk selector on the migration tab (if present)
+    initBulkSelector();
+  }
+
+  function initBulkSelector() {
+    const pages = window.__SHEET_PAGES__;
+    const listEl = document.getElementById('m-page-list');
+    const selectorEl = document.getElementById('m-sheet-selector');
+    if (!pages || !pages.length || !listEl || !selectorEl) return;
+
+    // Build checkbox list
+    listEl.innerHTML = pages.map(p => {
+      const allKw = [p.primair, ...(p.secundair || []), ...(p.longtail || [])].filter(Boolean);
+      const kwPreview = allKw.slice(0, 2).join(', ');
+      return '<label class="page-list-item">'
+        + '<input type="checkbox" class="bulk-page-cb"'
+        + ' data-url="' + escHtml(p.url) + '"'
+        + ' data-kw="' + escHtml(allKw.join(', ')) + '"'
+        + ' data-tpl="' + escHtml(p.template || '') + '"'
+        + ' checked onchange="updateSelCount()" />'
+        + '<span class="pl-url">' + escHtml(p.url) + '</span>'
+        + (p.template ? '<span class="tpl-badge">' + escHtml(p.template) + '</span>' : '')
+        + (kwPreview ? '<span class="pl-kw">' + escHtml(kwPreview) + '</span>' : '')
+        + '</label>';
+    }).join('');
+
+    // Switch UI: hide textarea + global keywords, show selector
+    const urlsWrap = document.getElementById('m-urls-wrap');
+    const kwRow    = document.getElementById('m-keywords-row');
+    if (urlsWrap) urlsWrap.style.display = 'none';
+    if (kwRow)    kwRow.style.display    = 'none';
+    selectorEl.style.display = '';
+
+    updateSelCount();
+  }
+
+  function toggleAllPages(checked) {
+    document.querySelectorAll('.bulk-page-cb').forEach(cb => {
+      if (cb.closest('.page-list-item').style.display !== 'none') cb.checked = checked;
+    });
+    updateSelCount();
+  }
+
+  function filterBulkPages(query) {
+    const q = (query || '').toLowerCase();
+    document.querySelectorAll('.page-list-item').forEach(item => {
+      const url = (item.querySelector('.pl-url')  || {}).textContent || '';
+      const tpl = (item.querySelector('.tpl-badge') || {}).textContent || '';
+      item.style.display = (!q || url.toLowerCase().includes(q) || tpl.toLowerCase().includes(q)) ? '' : 'none';
+    });
+    updateSelCount();
+  }
+
+  function updateSelCount() {
+    const all     = document.querySelectorAll('.bulk-page-cb');
+    const checked = [...all].filter(cb => cb.checked).length;
+    const el = document.getElementById('m-sel-count');
+    if (el) el.textContent = checked + ' van ' + all.length + ' geselecteerd';
+  }
+
+  function getSelectedPages() {
+    return [...document.querySelectorAll('.bulk-page-cb:checked')].map(cb => ({
+      url: cb.dataset.url,
+      keywords: cb.dataset.kw || '',
+      templateCode: cb.dataset.tpl || null,
+    }));
   }
 
   function findSheetPage(query) {
@@ -808,6 +990,21 @@
   // Init bij DOMContentLoaded (script staat onderaan, dus DOM is al klaar)
   initSheetPicker();
 
+  // Robuuste response parser: leest eerst als tekst, parseert daarna als JSON.
+  // Bij niet-JSON server-output (Vercel-error, HTML-fout) toont de error de
+  // echte server-body ipv de cryptische "Unexpected token 'A', is not valid JSON".
+  async function parseResponse(res) {
+    const text = await res.text();
+    if (!text) {
+      throw new Error('Server-fout (' + res.status + '): lege response.');
+    }
+    try {
+      return JSON.parse(text);
+    } catch (e) {
+      throw new Error('Server-fout (' + res.status + '): ' + text.slice(0, 400));
+    }
+  }
+
   async function schrijfPagina(btn) {
     const url = document.getElementById('w-url').value.trim();
     const keywords = document.getElementById('w-keywords').value.trim();
@@ -820,6 +1017,7 @@
     btn.disabled = true;
     btn.textContent = 'Bezig…';
     setStatus('w-status', 'Agent schrijft — en review-pipeline (3 critics + synthesizer) loopt na afloop. Tel op ~60–120 seconden.', 'info');
+    hideStatus('w-source-warn');
     document.getElementById('w-output').classList.remove('show');
     document.getElementById('w-verdict-wrap').style.display = 'none';
     lastPage = null;
@@ -835,15 +1033,16 @@
         headers: authHeaders(),
         body: JSON.stringify({ url, pageType: pagetypeValue, keywords, brief, sources, style: styleValue, templateCode }),
       });
-      const text = await res.text();
-      let data;
-      try {
-        data = JSON.parse(text);
-      } catch (parseErr) {
-        throw new Error('Server response kon niet worden gelezen als JSON: ' + text);
-      }
-      if (!res.ok || !data.success) throw new Error(data.error || data.message || 'Onbekende fout');
-      document.getElementById('w-content').textContent = data.content;
+      const data = await parseResponse(res);
+      if (!res.ok || !data.success) throw new Error(data.error || 'Onbekende fout');
+      const _wContent = document.getElementById('w-content');
+      const _rawMd = data.content || '';
+      _wContent.dataset.raw = _rawMd;
+      _wContent.classList.remove('raw-mode');
+      _wContent.innerHTML = renderMd(_rawMd);
+      _rawMode = false;
+      const _rawBtn = document.getElementById('w-raw-btn');
+      if (_rawBtn) _rawBtn.textContent = 'Raw';
       document.getElementById('w-output').classList.add('show');
       lastPage = data.page || { content: data.content };
       lastVerdict = data.verdict || null;
@@ -852,6 +1051,18 @@
         hideStatus('w-status');
       } else {
         setStatus('w-status', '✓ Pagina gegenereerd. Controleer de inhoud vóór publicatie.', 'success');
+      }
+      const warns = [];
+      if (data.sourceWarnings && data.sourceWarnings.length) {
+        warns.push('⚠ ' + data.sourceWarnings.length + ' bronpagina' + (data.sourceWarnings.length > 1 ? ''s' : '') + ' niet bereikbaar (403/bot-block): ' + data.sourceWarnings.join(', '));
+      }
+      if (data.reviewWarning) {
+        warns.push('⚠ ' + data.reviewWarning);
+      }
+      if (warns.length) {
+        setStatus('w-source-warn', warns.join(' | '), 'warn');
+      } else {
+        hideStatus('w-source-warn');
       }
     } catch (err) {
       setStatus('w-status', 'Fout: ' + err.message, 'error');
@@ -863,9 +1074,9 @@
 
   const ROLE_LABELS = { seo: 'SEO / GEO', brand: 'Brand', strategy: 'Strategy', legal: 'Juridisch', medical: 'Medisch', financial: 'Financieel', claims: 'Claims' };
   const VERDICT_TEXT = {
-    green:  { title: 'Groen — publish-ready', hint: 'Alle critics akkoord. Klik "Publiceer concept" om naar het CMS te pushen.' },
-    orange: { title: 'Oranje — auto-revised', hint: 'De writer heeft één revisie-ronde doorlopen. Lees de rapporten; publiceren kan, maar check scherp.' },
-    red:    { title: 'Rood — human review vereist', hint: 'Een of meerdere critics vonden een blocker. Publiceren geblokkeerd totdat een mens de output herschrijft.' },
+    green:  { title: 'Klaar voor publicatie', hint: 'Alle critics akkoord — geen openstaande punten.' },
+    orange: { title: 'Tekst bijgewerkt', hint: 'De schrijfagent heeft de tekst al bijgewerkt op basis van de critic-feedback. Bekijk de aandachtspunten hieronder vóór publicatie.' },
+    red:    { title: 'Human review vereist', hint: 'Een critic vond een blocker die handmatige correctie vereist. Publiceren is geblokkeerd.' },
   };
 
   function renderVerdict(data) {
@@ -880,37 +1091,64 @@
     bar.className = 'verdict-bar ' + verdict;
     dot.className = 'verdict-dot ' + verdict;
     const meta = VERDICT_TEXT[verdict] || VERDICT_TEXT.orange;
-    title.innerHTML = meta.title + (data.revised ? '<span class="revise-badge">herzien</span>' : '');
+    title.textContent = meta.title;
     summary.textContent = data.summary || meta.hint;
     publishBtn.style.display = verdict === 'red' ? 'none' : '';
 
-    // Render reports
+    // Render reports als afvinklijst
     const reportsEl = document.getElementById('w-reports');
     reportsEl.innerHTML = '';
     const reports = data.reports || {};
+    const isRevised = !!data.revised;
+
     Object.keys(reports).forEach(role => {
       const rep = reports[role] || {};
       const flags = Array.isArray(rep.flags) ? rep.flags : [];
       const item = document.createElement('div');
       item.className = 'report';
       const label = ROLE_LABELS[role] || role;
-      const flagCount = flags.length ? ' — ' + flags.length + ' ' + (flags.length === 1 ? 'opmerking' : 'opmerkingen') : ' — geen opmerkingen';
+
+      // Header-icoon: ✓ als alleen optionals (of geen), ⚠ bij revise/blocker
+      const hasOpenIssue = flags.some(f => f.severity === 'blocker' || f.severity === 'revise');
+      const headerIcon = hasOpenIssue ? '⚠️' : '✓';
+      const headerColor = hasOpenIssue ? '#E67E22' : '#27AE60';
+      const openCount = flags.filter(f => f.severity !== 'optional').length;
+      const optCount  = flags.filter(f => f.severity === 'optional').length;
+      const headerLabel = openCount
+        ? openCount + ' aandachtspunt' + (openCount > 1 ? 'en' : '') + (optCount ? ', ' + optCount + ' optioneel' : '')
+        : (optCount ? optCount + ' optioneel' : 'alles in orde');
+
+      // Body: optionele "al bijgewerkt"-melding + checkpunten
+      let bodyHtml = '';
+      if (isRevised && flags.length) {
+        bodyHtml += '<div class="revised-note">✓ De schrijfagent heeft de tekst al bijgewerkt op basis van onderstaande punten. Controleer of het resultaat klopt.</div>';
+      }
+      if (flags.length) {
+        bodyHtml += flags.map(f => {
+          const sev = f.severity || 'optional';
+          const icon = sev === 'optional' ? '💡' : '⚠️';
+          const label = sev === 'optional' ? 'Optioneel' : 'Aandachtspunt';
+          return '<div class="check-item">' +
+            '<div class="check-icon">' + icon + '</div>' +
+            '<div class="check-text">' +
+              '<strong>' + escHtml(label) + ' — ' + escHtml(f.issue || '') + '</strong>' +
+              (f.suggestion ? '<span>' + escHtml(f.suggestion) + '</span>' : '') +
+            '</div>' +
+          '</div>';
+        }).join('');
+      } else {
+        bodyHtml += '<div class="check-empty">✓ Geen opmerkingen — alle checks geslaagd.</div>';
+      }
+
       item.innerHTML =
         '<div class="report-header" onclick="toggleReport(this)">' +
-          '<span class="report-role-tag">' + label + '</span>' +
+          '<span style="font-size:14px;color:' + headerColor + ';flex-shrink:0;line-height:1">' + headerIcon + '</span>' +
+          '<span class="report-role-tag">' + escHtml(label) + '</span>' +
           '<span class="report-role"><span class="report-summary">' + escHtml(rep.summary || '') + '</span></span>' +
-          '<span style="color:var(--mid-grey);font-size:12px">' + flagCount + '</span>' +
+          '<span style="color:var(--mid-grey);font-size:12px;white-space:nowrap">' + escHtml(headerLabel) + '</span>' +
         '</div>' +
-        '<div class="report-body">' +
-          (flags.length
-            ? flags.map(f =>
-                '<div class="flag ' + (f.severity || 'optional') + '">' +
-                  '<div class="flag-issue"><span class="flag-severity">' + (f.severity || 'optional') + '</span>' + escHtml(f.issue || '') + '</div>' +
-                  (f.suggestion ? '<div class="flag-suggestion">' + escHtml(f.suggestion) + '</div>' : '') +
-                '</div>'
-              ).join('')
-            : '<div style="font-size:13px;color:var(--mid-grey);padding:10px 0">Geen opmerkingen van deze critic.</div>') +
-        '</div>';
+        '<div class="report-body">' + bodyHtml + '</div>';
+
       reportsEl.appendChild(item);
     });
 
@@ -936,7 +1174,7 @@
         headers: authHeaders(),
         body: JSON.stringify({ page: lastPage, verdict: lastVerdict, pageType: pagetypeValue }),
       });
-      const data = await res.json();
+      const data = await parseResponse(res);
       if (!res.ok || !data.success) throw new Error(data.error || 'Onbekende fout');
       setStatus('w-status', '✓ Gepubliceerd als concept in het CMS.', 'success');
       btn.textContent = '✓ Gepubliceerd';
@@ -949,9 +1187,24 @@
 
   async function startBulk(btn) {
     if (bulkRunning) { bulkRunning = false; btn.textContent = 'Start bulk generatie'; return; }
-    const urlsRaw = document.getElementById('m-urls').value.trim();
-    const urls = urlsRaw ? urlsRaw.split('\n').map(u => u.trim()).filter(Boolean) : [];
-    if (!urls.length) { setStatus('m-status', 'Vul minimaal één URL in.', 'error'); return; }
+
+    // Determine source: sheet selector (when present + visible) vs manual textarea
+    const sheetSel  = document.getElementById('m-sheet-selector');
+    const useSheet  = sheetSel && sheetSel.style.display !== 'none';
+    let pages, totalCount;
+
+    if (useSheet) {
+      pages = getSelectedPages();
+      if (!pages.length) { setStatus('m-status', 'Selecteer minimaal één pagina.', 'error'); return; }
+      totalCount = pages.length;
+    } else {
+      const urlsRaw = document.getElementById('m-urls').value.trim();
+      const urls = urlsRaw ? urlsRaw.split('\n').map(u => u.trim()).filter(Boolean) : [];
+      if (!urls.length) { setStatus('m-status', 'Vul minimaal één URL in.', 'error'); return; }
+      const keywords = document.getElementById('m-keywords').value.trim();
+      pages = urls.map(u => ({ url: u, keywords, templateCode: null }));
+      totalCount = urls.length;
+    }
 
     bulkRunning = true;
     btn.textContent = 'Stop';
@@ -960,24 +1213,37 @@
     hideStatus('m-status');
 
     let completed = [];
-    const keywords = document.getElementById('m-keywords').value.trim();
+    let consecutiveErrors = 0;
+    const MAX_ERRORS = 3;
 
     while (bulkRunning) {
       try {
         const res = await fetch('/api/migrate', {
           method: 'POST',
           headers: authHeaders(),
-          body: JSON.stringify({ urls, completed, batchSize: 3, pageType: migratePagetype, keywords }),
+          body: JSON.stringify({ pages, completed, batchSize: 3, pageType: migratePagetype }),
         });
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error || 'API fout');
+        const data = await parseResponse(res);
 
+        if (!res.ok) {
+          consecutiveErrors++;
+          if (consecutiveErrors >= MAX_ERRORS) {
+            bulkRunning = false;
+            setStatus('m-status', 'Bulk gestopt na ' + MAX_ERRORS + ' opeenvolgende fouten: ' + (data.error || 'API fout'), 'error');
+            break;
+          }
+          setStatus('m-status', 'Tijdelijke fout (' + consecutiveErrors + '/' + MAX_ERRORS + ') — opnieuw proberen…', 'warn');
+          await new Promise(r => setTimeout(r, 3000 * consecutiveErrors));
+          continue;
+        }
+
+        consecutiveErrors = 0;
         (data.results || []).forEach(r => addResultItem(r));
 
         completed = data.completed || [];
-        const pct = urls.length ? Math.round(completed.length / urls.length * 100) : 0;
+        const pct = totalCount ? Math.round(completed.length / totalCount * 100) : 0;
         document.getElementById('m-progress-fill').style.width = pct + '%';
-        document.getElementById('m-progress-label').textContent = completed.length + ' van ' + urls.length + ' pagina\'s verwerkt';
+        document.getElementById('m-progress-label').textContent = completed.length + ' van ' + totalCount + ' pagina\'s verwerkt';
 
         if (data.done) {
           bulkRunning = false;
@@ -985,9 +1251,14 @@
           break;
         }
       } catch (err) {
-        bulkRunning = false;
-        setStatus('m-status', 'Fout: ' + err.message, 'error');
-        break;
+        consecutiveErrors++;
+        if (consecutiveErrors >= MAX_ERRORS) {
+          bulkRunning = false;
+          setStatus('m-status', 'Bulk gestopt na ' + MAX_ERRORS + ' opeenvolgende fouten: ' + err.message, 'error');
+          break;
+        }
+        setStatus('m-status', 'Tijdelijke fout (' + consecutiveErrors + '/' + MAX_ERRORS + ') — opnieuw proberen…', 'warn');
+        await new Promise(r => setTimeout(r, 3000 * consecutiveErrors));
       }
     }
 
@@ -999,13 +1270,25 @@
     const list = document.getElementById('m-results');
     const item = document.createElement('div');
     item.className = 'result-item';
+    const rawMd = r.success ? (r.content || '') : '';
+    const bodyContent = r.success ? renderMd(rawMd) : escHtml(r.error || 'Onbekende fout');
     item.innerHTML = `
       <div class="result-item-header" onclick="toggleResult(this)">
         <div class="result-dot ${r.success ? 'ok' : 'err'}"></div>
         <div class="result-url">${r.url}</div>
         <span style="color:var(--mid-grey);font-size:12px">${r.success ? '✓ Gegenereerd' : '✗ Mislukt'} — klik om te bekijken</span>
       </div>
-      <div class="result-body">${r.success ? (r.content || '') : (r.error || 'Onbekende fout')}</div>`;
+      <div class="result-body" data-raw="${escHtml(rawMd)}">${bodyContent}</div>`;
+    // Kopieer-knop en raw-toggle per resultaat
+    if (r.success) {
+      const header = item.querySelector('.result-item-header');
+      const copyBtn = document.createElement('button');
+      copyBtn.className = 'btn-secondary';
+      copyBtn.style.cssText = 'padding:3px 10px;font-size:11px;margin-left:auto;flex-shrink:0';
+      copyBtn.textContent = 'Kopieer';
+      copyBtn.onclick = e => { e.stopPropagation(); navigator.clipboard.writeText(rawMd); copyBtn.textContent = '✓'; setTimeout(() => copyBtn.textContent = 'Kopieer', 1500); };
+      header.appendChild(copyBtn);
+    }
     list.appendChild(item);
   }
   function toggleResult(header) {
@@ -1030,7 +1313,7 @@
         headers: authHeaders(),
         body: JSON.stringify({ oldUrls, newUrls, permanent: redirectPermanent }),
       });
-      const data = await res.json();
+      const data = await parseResponse(res);
       if (!res.ok) throw new Error(data.error || 'API fout');
 
       const table = document.createElement('table');
@@ -1077,7 +1360,7 @@
 
     try {
       const res = await fetch('/api/cms-export', { method: 'POST', headers: authHeaders(), body: JSON.stringify({}) });
-      const data = await res.json();
+      const data = await parseResponse(res);
       if (!res.ok) throw new Error(data.error || 'API fout');
 
       const bytes = atob(data.base64);
@@ -1128,7 +1411,7 @@
           headers: authHeaders(),
           body: JSON.stringify({ data: fileData, mimeType, operation: importOp, completed, batchSize: 10 }),
         });
-        const data = await res.json();
+        const data = await parseResponse(res);
         if (!res.ok) throw new Error(data.error || 'API fout');
 
         completed = data.completed || [];

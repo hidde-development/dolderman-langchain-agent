@@ -41,7 +41,7 @@ export default async function handler(req, res) {
         : 'https://api.webflow.com/v2/collections/' + collectionId + '/items';
       const r = await fetch(url, {
         method: isUpdate ? 'PATCH' : 'POST',
-        headers: { 'Authorization': 'Bearer ' + process.env.WEBFLOW_API_KEY, 'Content-Type': 'application/json' },
+        headers: { 'Authorization': 'Bearer ' + process.env.Claude, 'Content-Type': 'application/json' },
         body: JSON.stringify({ isArchived: false, isDraft: true, fieldData }),
       });
       if (r.ok) {

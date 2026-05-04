@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     let allItems = [], offset = 0;
     while (true) {
       const r = await fetch('https://api.webflow.com/v2/collections/' + collectionId + '/items?limit=100&offset=' + offset, {
-        headers: { 'Authorization': 'Bearer ' + process.env.WEBFLOW_API_KEY }
+        headers: { 'Authorization': 'Bearer ' + process.env.Claude }
       });
       if (!r.ok) return res.status(500).json({ error: 'Webflow fout: ' + r.status });
       const d = await r.json();

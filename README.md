@@ -15,7 +15,7 @@ _Inclusief migratie-module (redirects, bulk CMS, Excel import/export)._
 ```bash
 npm install
 cp .env.example .env.local
-# Vul Claude (Anthropic API-key) en WEBFLOW_API_KEY in .env.local
+# Vul Claude (Anthropic API-key) en Claude in .env.local
 ```
 
 ## Deployen op Vercel
@@ -55,18 +55,7 @@ Geeft de inhoud van `vercel.json` terug als string (`content`) plus de gematchte
 ```json
 { "collectionId": "optional", "format": "excel" }
 ```
-Response bevat `{ base64, filename, rows, columns }`. Decodeer base64 om de Excel te downloaden.
-
-### `POST /api/export-pages` — Exporteer pagina’s naar Excel (direct download)
-```json
-{
-  "pages": [
-    { "slug": "...", "meta_title": "...", "meta_description": "...", "content": "..." }
-  ],
-  "filename": "generated-pages.xlsx"
-}
-```
-Deze route geeft een echte `.xlsx` download terug met `Content-Disposition`.
+Geeft `{ base64, filename, rows, columns }` terug. Decodeer base64 om de Excel te downloaden.
 
 ### `POST /api/cms-import` — Excel/CSV importeren in CMS (met continuation token)
 ```json
@@ -122,4 +111,4 @@ Zet de pipeline uit door `api/agent.js` aan te passen (laat `runReview` achterwe
 
 Platform: **Webflow**
 Endpoint: _zie `lib/tools/publish-cms.js`_
-API-key: `process.env.WEBFLOW_API_KEY`
+API-key: `process.env.Claude`
