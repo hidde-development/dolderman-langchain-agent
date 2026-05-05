@@ -2,6 +2,61 @@
 
 DOELMARKT: B2C. Consumenten. Nadruk op voordeel, gemak, emotie. Vermijd overmatig zakelijk/technisch jargon.
 
+## Klantspecifieke intakevragen
+
+### Dienstpagina
+
+Extra intake (vóór schrijven, naast standaard):
+- Begint de tekst bij de situatie van de lezer (Waarom)?
+- Pas je de aanspreekvorm jij/je consequent toe?
+- Zijn alle zinnen actief en stellig? Niet passief, geen aarzeling?
+- Is het taalgebruik B1: korte zinnen, gewone woorden?
+- Is elk juridisch begrip direct uitgelegd?
+- Zijn afkortingen bij eerste gebruik voluit geschreven?
+- Geen emoji's?
+- Geen 'slachtoffer' of 'herstel' in de tekst?
+- Volgt de tekst de structuur: Waarom → Hoe → Wat?
+- Eindigt de tekst met een concrete stap of actie voor de lezer?
+
+### Productpagina
+
+Extra intake (vóór schrijven, naast standaard):
+- Wat zijn de specificaties van dit product?
+- Welke varianten of opties zijn er?
+- Wat is de prijs of prijsrange?
+- Wat onderscheidt dit product van directe alternatieven?
+- Is er een handleiding of technisch document beschikbaar?
+
+### Artikelpagina
+
+Extra intake (vóór schrijven, naast standaard):
+- Begint de tekst bij de situatie van de lezer (Waarom)?
+- Pas je de aanspreekvorm jij/je consequent toe?
+- Zijn alle zinnen actief en stellig? Niet passief, geen aarzeling?
+- Is het taalgebruik B1: korte zinnen, gewone woorden?
+- Is elk juridisch begrip direct uitgelegd?
+- Zijn afkortingen bij eerste gebruik voluit geschreven?
+- Geen emoji's?
+- Geen 'slachtoffer' of 'herstel' in de tekst?
+- Volgt de tekst de structuur: Waarom → Hoe → Wat?
+- Eindigt de tekst met een concrete stap of actie voor de lezer?
+
+### Case
+
+Extra intake (vóór schrijven, naast standaard):
+- Hoe mag de klant worden aangeduid? (naam, sector, of anoniem)
+- Wat was de situatie of het probleem vóór de samenwerking?
+- Wat is er concreet gedaan en in welke periode?
+- Wat zijn de meetbare resultaten?
+- Is er een quote beschikbaar? (letterlijk, inclusief naam en functie)
+
+### Social proof
+
+Extra intake (vóór schrijven, naast standaard):
+- Wat is de letterlijke quote van de klant?
+- Naam, functie en organisatie van de bron?
+- Is er een concreet resultaat of getal te vermelden bij de quote?
+
 ## Case / Social proof
 
 AFWIJKEND REGIME: SEO niet leidend. Geen zoekwoorden in H1/H2, geen featured snippets, geen FAQ. Schrijf voor mensen. Kracht: herkenbaarheid + oprechtheid + concreet verhaal. Geen marketingtaal. Geen superlatieven. Feiten en gevoelens naast elkaar.
@@ -26,6 +81,13 @@ Principes:
 | 7 | Reflectie | ≤3 zinnen. Wat zegt dit over aanpak/samenwerking. Geen herhaling resultaten. |
 | 8 | Soft CTA | Uitnodigend. Aanspreekvorm uit brand.md. ≤2 zinnen. |
 
+Extra intake (vóór schrijven, naast standaard):
+- Hoe mag de klant worden aangeduid? (naam, sector, of anoniem)
+- Wat was de situatie of het probleem vóór de samenwerking?
+- Wat is er concreet gedaan en in welke periode?
+- Wat zijn de meetbare resultaten?
+- Is er een quote beschikbaar? (letterlijk, inclusief naam en functie)
+
 ### Social proof snippet (kort)
 
 Voor testimonials, reviewblokken, quotes op landingspagina's.
@@ -36,6 +98,11 @@ Voor testimonials, reviewblokken, quotes op landingspagina's.
 | Quote | Letterlijk, ≤60 woorden |
 | Naam + functie | Voornaam + achternaam, functietitel, evt. organisatie |
 | Resultaat (optioneel) | Eén getal/feit, visueel losstaand |
+
+Extra intake (vóór schrijven, naast standaard):
+- Wat is de letterlijke quote van de klant?
+- Naam, functie en organisatie van de bron?
+- Is er een concreet resultaat of getal te vermelden bij de quote?
 
 NIET DOEN bij case/social-proof:
 - Zoekwoorden in koppen/eerste zinnen forceren

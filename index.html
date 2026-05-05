@@ -391,7 +391,7 @@
   <div class="tab-panel active" id="tab-schrijf">
     <h1>Schrijf een pagina</h1>
     <p class="page-sub">Geef de agent een opdracht en hij schrijft een productieklare webpagina op basis van het merkprofiel, SEO-richtlijnen en de templates van Dolderman Letselschade Advocaten.</p>
-    <div style="margin-bottom:24px;padding:14px 18px;border-radius:12px;background:var(--gradient-purple-soft);border:1px solid rgba(99,49,244,0.12);font-size:13.5px;color:var(--dark-grey)"><strong style="color:var(--purple-deep)">Review-pipeline actief:</strong> na elke generatie lopen 3 critics parallel (SEO/GEO, Brand, Strategy) + Juridisch en beslist de synthesizer: groen / oranje / rood.</div>
+    <div style="margin-bottom:24px;padding:14px 18px;border-radius:12px;background:var(--gradient-purple-soft);border:1px solid rgba(99,49,244,0.12);font-size:13.5px;color:var(--dark-grey)"><strong style="color:var(--purple-deep)">Review-pipeline actief:</strong> na elke generatie lopen 3 critics parallel (SEO/GEO, Brand, Strategy) en beslist de synthesizer: groen / oranje / rood.</div>
     <div class="card">
       <div class="card-header">
         <div class="card-icon">✍️</div>
@@ -789,19 +789,19 @@
   }
 
   // Minimale markdown → HTML renderer (geen externe afhankelijkheid)
+  // NB: deze functie staat in de outer template literal van lcGenFrontend(),
+  //     dus alle \n, \s, \d, \* zijn DUBBEL ge-escaped — anders eet de
+  //     template literal de eerste backslash en wordt de regex ongeldig.
   function renderMd(md) {
     if (!md) return '';
     const safe = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
     const inline = s => safe(s)
-      .replace(/***(.+?)***/g,'<strong><em>$1</em></strong>')
-      .replace(/**(.+?)**/g,'<strong>$1</strong>')
-      .replace(/*([^*
-]+?)*/g,'<em>$1</em>')
-      .replace(/`([^`
-]+?)`/g,'<code>$1</code>');
+      .replace(/\*\*\*(.+?)\*\*\*/g,'<strong><em>$1</em></strong>')
+      .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+      .replace(/\*([^*\n]+?)\*/g,'<em>$1</em>')
+      .replace(/`([^`\n]+?)`/g,'<code>$1</code>');
 
-    const lines = md.split('
-');
+    const lines = md.split('\n');
     const out = [];
     let inUl = false, inOl = false, pBuf = [];
 
@@ -813,19 +813,18 @@
     for (const raw of lines) {
       const t = raw.trim();
       if (!t) { flushP(); closeLists(); continue; }
-      const hm = t.match(/^(#{1,4})s+(.+)/);
+      const hm = t.match(/^(#{1,4})\s+(.+)/);
       if (hm) { flushP(); closeLists(); out.push('<h' + hm[1].length + '>' + inline(hm[2]) + '</h' + hm[1].length + '>'); continue; }
       if (/^---+$/.test(t)) { flushP(); closeLists(); out.push('<hr>'); continue; }
-      const ulm = t.match(/^[-*]s+(.*)/);
+      const ulm = t.match(/^[-*]\s+(.*)/);
       if (ulm) { flushP(); closeOl(); if (!inUl) { out.push('<ul>'); inUl = true; } out.push('<li>' + inline(ulm[1]) + '</li>'); continue; }
-      const olm = t.match(/^d+.s+(.*)/);
+      const olm = t.match(/^\d+\.\s+(.*)/);
       if (olm) { flushP(); closeUl(); if (!inOl) { out.push('<ol>'); inOl = true; } out.push('<li>' + inline(olm[1]) + '</li>'); continue; }
       closeLists();
       pBuf.push(inline(t));
     }
     flushP(); closeLists();
-    return out.join('
-');
+    return out.join('\n');
   }
 
   let _rawMode = false;
@@ -1052,15 +1051,23 @@
       } else {
         setStatus('w-status', '✓ Pagina gegenereerd. Controleer de inhoud vóór publicatie.', 'success');
       }
-      const warns = [];
-      if (data.sourceWarnings && data.sourceWarnings.length) {
-        warns.push('⚠ ' + data.sourceWarnings.length + ' bronpagina' + (data.sourceWarnings.length > 1 ? ''s' : '') + ' niet bereikbaar (403/bot-block): ' + data.sourceWarnings.join(', '));
-      }
-      if (data.reviewWarning) {
-        warns.push('⚠ ' + data.reviewWarning);
+      // Warnings: nieuwe aggregated 'warnings' array heeft voorrang.
+      // Legacy: sourceWarnings + reviewWarning als fallback voor oudere deploys.
+      let warns = [];
+      if (Array.isArray(data.warnings) && data.warnings.length) {
+        warns = data.warnings.map(w => '⚠ ' + w);
+      } else {
+        if (data.sourceWarnings && data.sourceWarnings.length) {
+          warns.push('⚠ ' + data.sourceWarnings.length + ' bronpagina' + (data.sourceWarnings.length > 1 ? '\'s' : '') + ' niet bereikbaar (403/bot-block): ' + data.sourceWarnings.join(', '));
+        }
+        if (data.reviewWarning) {
+          warns.push('⚠ ' + data.reviewWarning);
+        }
       }
       if (warns.length) {
-        setStatus('w-source-warn', warns.join(' | '), 'warn');
+        // Toon elke waarschuwing op een eigen regel — beter leesbaar dan ' | '-separator.
+        setStatus('w-source-warn', warns.join('\n'), 'warn');
+        document.getElementById('w-source-warn').style.whiteSpace = 'pre-line';
       } else {
         hideStatus('w-source-warn');
       }
@@ -1157,10 +1164,6 @@
 
   function toggleReport(header) {
     header.nextElementSibling.classList.toggle('open');
-  }
-
-  function escHtml(s) {
-    return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 
   async function publishPage(btn) {
@@ -1272,13 +1275,17 @@
     item.className = 'result-item';
     const rawMd = r.success ? (r.content || '') : '';
     const bodyContent = r.success ? renderMd(rawMd) : escHtml(r.error || 'Onbekende fout');
+    // Per-pagina warnings (bron-fetch faal, consolidate-fout) — apart blokje boven de content.
+    const warnBlock = (r.success && Array.isArray(r.warnings) && r.warnings.length)
+      ? '<div class="status-bar show warn" style="margin:0 0 12px 0;white-space:pre-line">' + r.warnings.map(w => '⚠ ' + escHtml(w)).join('\n') + '</div>'
+      : '';
     item.innerHTML = `
       <div class="result-item-header" onclick="toggleResult(this)">
         <div class="result-dot ${r.success ? 'ok' : 'err'}"></div>
         <div class="result-url">${r.url}</div>
-        <span style="color:var(--mid-grey);font-size:12px">${r.success ? '✓ Gegenereerd' : '✗ Mislukt'} — klik om te bekijken</span>
+        <span style="color:var(--mid-grey);font-size:12px">${r.success ? (r.warnings && r.warnings.length ? '⚠ Gegenereerd met waarschuwing' : '✓ Gegenereerd') : '✗ Mislukt'} — klik om te bekijken</span>
       </div>
-      <div class="result-body" data-raw="${escHtml(rawMd)}">${bodyContent}</div>`;
+      <div class="result-body" data-raw="${escHtml(rawMd)}">${warnBlock}${bodyContent}</div>`;
     // Kopieer-knop en raw-toggle per resultaat
     if (r.success) {
       const header = item.querySelector('.result-item-header');

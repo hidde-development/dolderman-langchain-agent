@@ -14,12 +14,13 @@ function checkAuth(req, res) {
 }
 
 // Bronpagina's ophalen + consolideren tot één werkbare brief.
-// Retourneert { brief, failed } — failed bevat URLs die niet bereikbaar waren (403/timeout).
+// Retourneert { brief, failed, consolidateFailed }.
 // Geen sources → brief blijft zoals hij is.
 // 1 source  → bronpagina als context aan brief toegevoegd.
 // 2+ sources → consolidate_sources samenvatting + brief als aanvulling.
+//             Bij consolidate-fout: fallback op simpele concatenatie (verlies geen content).
 async function prepareBrief({ brief, sources, pageType, url }) {
-  if (!sources || !sources.length) return { brief: brief || "", failed: [] };
+  if (!sources || !sources.length) return { brief: brief || "", failed: [], consolidateFailed: false };
   const fetched = [];
   const failed = [];
   for (const u of sources) {
@@ -29,16 +30,20 @@ async function prepareBrief({ brief, sources, pageType, url }) {
       else failed.push(u);
     } catch (_) { failed.push(u); }
   }
-  if (fetched.length >= 2) {
-    try {
-      const c = JSON.parse(await consolidateTool.func({ sources: fetched, topic: pageType + " over " + url }));
-      if (c.success) return { brief: c.brief + (brief ? "\n\nAanvullende opdracht:\n" + brief : ""), failed };
-    } catch (_) {}
-  }
+  if (fetched.length === 0) return { brief: brief || "", failed, consolidateFailed: false };
   if (fetched.length === 1) {
-    return { brief: "Bronpagina:\n" + fetched[0].content + (brief ? "\n\nAanvullende opdracht:\n" + brief : ""), failed };
+    return { brief: "Bronpagina:\n" + fetched[0].content + (brief ? "\n\nAanvullende opdracht:\n" + brief : ""), failed, consolidateFailed: false };
   }
-  return { brief: brief || "", failed };
+  // 2+ gefetcht → probeer consolideren
+  let consolidateFailed = false;
+  try {
+    const c = JSON.parse(await consolidateTool.func({ sources: fetched, topic: pageType + " over " + url }));
+    if (c.success) return { brief: c.brief + (brief ? "\n\nAanvullende opdracht:\n" + brief : ""), failed, consolidateFailed: false };
+    consolidateFailed = true;
+  } catch (_) { consolidateFailed = true; }
+  // Fallback: concateneer ruwe content zodat de writer iets heeft om mee te werken.
+  const concatenated = fetched.map(f => "## " + (f.title || f.url) + "\n" + f.content).join("\n\n---\n\n");
+  return { brief: "Bronpagina's (consolidatie mislukt — ruwe inhoud):\n\n" + concatenated + (brief ? "\n\nAanvullende opdracht:\n" + brief : ""), failed, consolidateFailed };
 }
 
 // write_page direct aanroepen (niet via agent.invoke). Voorkomt schema-mismatches:
@@ -70,7 +75,7 @@ export default async function handler(req, res) {
 
   try {
     // 1. Brief verrijken (sources fetch + consolidate)
-    const { brief: enrichedBrief, failed: sourcesFailed } = await prepareBrief({ brief: safeBrief, sources: safeSources, pageType, url });
+    const { brief: enrichedBrief, failed: sourcesFailed, consolidateFailed } = await prepareBrief({ brief: safeBrief, sources: safeSources, pageType, url });
 
     // 2. Writer → v1
     const pageV1 = await callWritePage({ brief: enrichedBrief, pageType, url, keywords, templateCode, style });
@@ -88,6 +93,7 @@ export default async function handler(req, res) {
     let finalPage = pageV1;
     let finalContent = contentV1;
     let revised = false;
+    let reviseWarning = null;
 
     // 4. Auto-revise bij oranje (max 1x) — alleen als review succesvol was
     if (review && review.verdict === "orange" && review.revisionPrompt) {
@@ -97,8 +103,17 @@ export default async function handler(req, res) {
         finalPage = pageV2;
         finalContent = pageV2.content || "";
         revised = true;
-      } catch (_) { /* revise mislukt → lever v1 */ }
+      } catch (reviseErr) {
+        reviseWarning = "Automatische revisie na oranje verdict mislukt — eerste versie geleverd: " + reviseErr.message;
+      }
     }
+
+    // Geaggregeerde warnings — alle silent failures expliciet maken voor de gebruiker.
+    const warnings = [];
+    if (sourcesFailed.length) warnings.push("Niet bereikbare bronpagina's (403/timeout/DNS): " + sourcesFailed.join(", "));
+    if (consolidateFailed)    warnings.push("Consolidatie van bronpagina's mislukt — ruwe inhoud is gebruikt in plaats van AI-samenvatting.");
+    if (reviewWarning)        warnings.push(reviewWarning);
+    if (reviseWarning)        warnings.push(reviseWarning);
 
     return res.status(200).json({
       success: true,
@@ -106,6 +121,8 @@ export default async function handler(req, res) {
       page: finalPage,
       ...(review ? { verdict: review.verdict, reports: review.reports, summary: review.summary, revised } : {}),
       style,
+      ...(warnings.length ? { warnings } : {}),
+      // Legacy compat — frontend kan beide lezen.
       ...(reviewWarning ? { reviewWarning } : {}),
       ...(sourcesFailed.length ? { sourceWarnings: sourcesFailed } : {}),
     });

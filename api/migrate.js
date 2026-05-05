@@ -13,25 +13,31 @@ function checkAuth(req, res) {
 }
 
 // Bronpagina ophalen en samenvoegen tot een brief (identiek patroon als api/agent.js).
+// Retourneert { brief, failed, consolidateFailed } — silent failures worden zichtbaar gemaakt.
 async function prepareBrief({ brief, sources, pageType, url }) {
-  if (!sources || !sources.length) return brief || "";
+  if (!sources || !sources.length) return { brief: brief || "", failed: [], consolidateFailed: false };
   const fetched = [];
+  const failed = [];
   for (const u of sources) {
     try {
       const r = JSON.parse(await fetchUrlTool.func({ url: u }));
       if (r.success) fetched.push({ url: u, title: r.title || "", content: r.content || "" });
-    } catch (_) {}
+      else failed.push(u);
+    } catch (_) { failed.push(u); }
   }
-  if (fetched.length >= 2) {
-    try {
-      const c = JSON.parse(await consolidateTool.func({ sources: fetched, topic: pageType + " over " + url }));
-      if (c.success) return c.brief + (brief ? "\n\nAanvullende opdracht:\n" + brief : "");
-    } catch (_) {}
-  }
+  if (fetched.length === 0) return { brief: brief || "", failed, consolidateFailed: false };
   if (fetched.length === 1) {
-    return "Bronpagina:\n" + fetched[0].content + (brief ? "\n\nAanvullende opdracht:\n" + brief : "");
+    return { brief: "Bronpagina:\n" + fetched[0].content + (brief ? "\n\nAanvullende opdracht:\n" + brief : ""), failed, consolidateFailed: false };
   }
-  return brief || "";
+  let consolidateFailed = false;
+  try {
+    const c = JSON.parse(await consolidateTool.func({ sources: fetched, topic: pageType + " over " + url }));
+    if (c.success) return { brief: c.brief + (brief ? "\n\nAanvullende opdracht:\n" + brief : ""), failed, consolidateFailed: false };
+    consolidateFailed = true;
+  } catch (_) { consolidateFailed = true; }
+  // Fallback: concateneer ruwe content (geen verlies van source-content).
+  const concatenated = fetched.map(f => "## " + (f.title || f.url) + "\n" + f.content).join("\n\n---\n\n");
+  return { brief: "Bronpagina's (consolidatie mislukt — ruwe inhoud):\n\n" + concatenated + (brief ? "\n\nAanvullende opdracht:\n" + brief : ""), failed, consolidateFailed };
 }
 
 // write_page direct aanroepen — geen agent.invoke, voorkomt schema-mismatches.
@@ -74,9 +80,13 @@ export default async function handler(req, res) {
     const effectivePt  = pgTpl || pageType;
     try {
       const brief = "Herschrijf deze pagina volledig op basis van de merkregels en templates.\nURL: " + url + "\nPaginatype: " + effectivePt + "\nZoekwoorden: " + effectiveKw;
-      const enrichedBrief = await prepareBrief({ brief, sources: [url], pageType: effectivePt, url });
+      const { brief: enrichedBrief, failed: pageSourcesFailed, consolidateFailed } = await prepareBrief({ brief, sources: [url], pageType: effectivePt, url });
       const page = await callWritePage({ brief: enrichedBrief, pageType: effectivePt, url, keywords: effectiveKw, templateCode: pgTpl || null });
-      results.push({ url, success: true, content: page.content, page });
+      // Per-pagina warnings — zo blijven silent failures zichtbaar in de bulk-resultaten.
+      const warnings = [];
+      if (pageSourcesFailed.length) warnings.push("Bronpagina niet bereikbaar: " + pageSourcesFailed.join(", "));
+      if (consolidateFailed)        warnings.push("Consolidatie mislukt — ruwe inhoud gebruikt.");
+      results.push({ url, success: true, content: page.content, page, ...(warnings.length ? { warnings } : {}) });
     } catch (err) {
       results.push({ url, success: false, error: err.message });
     }
