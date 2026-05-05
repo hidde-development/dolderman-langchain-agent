@@ -98,6 +98,8 @@ Na elke aanroep van `/api/agent` lopen drie critics parallel:
 | **Brand** | Toon, aanspreekvorm, verboden woorden, merkwaarden, guardrails |
 | **Strategy** | Paginatype-alignment, doelgroep-tone, CTA-logica, pijler-aanwezigheid |
 
+Plus domein-critic(s): **Juridisch (NL)**. Deze gebruiken `knowledge/domain-<name>.md` als kennisbron.
+
 De **synthesizer** beslist op basis van alle rapporten:
 - **Groen** → publish-ready, roep `/api/publish` aan
 - **Oranje** → writer heeft één auto-revisie gedaan; controleer de reports voor publiceren

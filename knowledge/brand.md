@@ -13,7 +13,7 @@ je/jij — consequent, geen wisseling tussen secties of paginatypen.
 
 ## Merkwaarden
 
-daadkracht, vindingrijkheid, verbindend, ontzorgend, authentiek, passie
+daadkracht, vindingrijkheid, verbindend, ontzorgend, authentiek, gepassioneerd
 
 Impliciet verwerken. Nooit letterlijk noemen.
 
@@ -26,7 +26,7 @@ Elke pagina sluit aan bij ≥1 pijler.
 **Verbindend** — De persoon staat centraal, niet het dossier; de situatie van de lezer wordt erkend vóórdat er geïnformeerd of overtuigd wordt, zodat de belofte 'schouder aan schouder' voelbaar is.
 **Ontzorgend** — Kosten, tijdsduur en kans van slagen worden proactief benoemd en complexe procedures worden begrijpelijk gemaakt, zodat de lezer altijd weet waar hij aan toe is.
 **Authentiek** — Teksten lezen als gesproken taal: direct, helder, zonder omhaal en zonder clichés, met een nuchtere toon die geen poespas verdraagt.
-**Passie** — Betrokkenheid en gedrevenheid worden voelbaar gemaakt via sterke werkwoorden en concrete inhoud, niet via uitroeptekens of superlatieven.
+**Gepassioneerd** — Betrokkenheid en gedrevenheid worden voelbaar gemaakt via sterke werkwoorden en concrete inhoud, niet via uitroeptekens of superlatieven.
 
 ## Kernuitkomsten
 
@@ -48,7 +48,7 @@ Verwerk 2–3 per pagina, natuurlijk. Niet gestapeld of geforceerd.
 **jurist** — 
 **advocaat** — 
 **smartengeld** — 
-**berekenen** — 
+**beroepsziekte** — 
 **aansprakelijkheid** — 
 **schadevergoeding** — 
 **vergoeding** — 

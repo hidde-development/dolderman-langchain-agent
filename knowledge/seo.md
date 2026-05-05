@@ -68,28 +68,23 @@ URL-bronnen: hoofdpagina's onderaan dit bestand, productpagina's in `knowledge.m
 
 ## Hoofdpagina's voor interne linking
 
-Onderstaande URL's zijn LIVE.
+Onderstaande URL's zijn TOEKOMSTIG (nieuwe site / migratie). Schrijf alsof ze al bestaan.
 
 Gebruik als ankerpunt. Kies meest inhoudelijk relevante URL.
 ### Navigatie
 
 - https://dlsa.nl/
-- https://dlsa.nl/vragen-mip/
-- https://dlsa.nl/erkenning-van-ptss-bij-de-brandweer/
-- https://dlsa.nl/regeling-ptss-brandweer-2026/
-- https://dlsa.nl/toekomst-bij-de-brandweer/
-- https://dlsa.nl/werkgeversaansprakelijkheid-ptss-brandweer/
-- https://dlsa.nl/aanspraken-ptss-regeling-brandweer/
-- https://dlsa.nl/vacature-letselschade-advocaat/
-- https://dlsa.nl/vacature-jurist-letselschade/
-- https://dlsa.nl/letselschade-tijdens-een-georganiseerde-reis/
-- https://dlsa.nl/belasting-op-schadevergoeding/
-- https://dlsa.nl/moet-ik-mijn-eigen-risico-betalen-na-een-bedrijfsongeval/
-- https://dlsa.nl/letselschade-door-een-dier/
-- https://dlsa.nl/letselschade-claimen/
-- https://dlsa.nl/aanrijding-in-nederland-met-buitenlands-kenteken/
-- https://dlsa.nl/blijvend-letsel-na-een-ongeval/
-- https://dlsa.nl/aanrijdingsformulier-invullen/
-- https://dlsa.nl/hoe-artikel-185-wvw-werkt/
-- https://dlsa.nl/afwikkeling-zaak-letselschade/
-- https://dlsa.nl/de-rol-van-een-arbeidsdeskundige-bij-letselschade/
+- https://dlsa.nl/jouw-situatie/defensie
+- https://dlsa.nl/jouw-situatie/politie
+- https://dlsa.nl/jouw-situatie/brandweer
+- https://dlsa.nl/jouw-situatie/particulier
+- https://dlsa.nl/letselschade
+- https://dlsa.nl/letselschade/verkeersongeval
+- https://dlsa.nl/letselschade/bedrijfsongeval
+
+### Producten & diensten
+
+- https://dlsa.nl/jouw-situatie/particulier (Letselschade voor civiele cliënten)
+- https://dlsa.nl/jouw-situatie/politie (Letselschade voor politieagenten)
+- https://dlsa.nl/jouw-situatie/brandweer (Letselschade voor brandweerlieden)
+- https://dlsa.nl/jouw-situatie/defensie (Letselschade voor militairen en veteranen)

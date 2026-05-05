@@ -4,16 +4,19 @@ ALLEEN onderstaande bronnen + gegevens gebruiken. Verzin geen feiten. Ontbrekend
 
 ## Productcatalogus
 
-URL's = huidige live URL’s.
+URL's = toekomstige URL’s (nieuwe website / migratie).
 
-**Letselschade voor civiele cliënten**
+**Letselschade voor civiele cliënten** — [https://dlsa.nl/jouw-situatie/particulier](https://dlsa.nl/jouw-situatie/particulier)
 Juridische bijstand voor mensen die letselschade hebben opgelopen door een verkeersongeval, val of andere externe oorzaak, waarbij DLSA het juridische werk volledig overneemt
 
-**Letselschade voor ambtenaren**
-Juridische bijstand voor militairen, politieagenten, brandweerlieden en andere ambtenaren die letselschade hebben opgelopen in de uitoefening van hun functie en in conflict zijn met hun werkgever
+**Letselschade voor politieagenten** — [https://dlsa.nl/jouw-situatie/politie](https://dlsa.nl/jouw-situatie/politie)
+Juridische bijstand voor politieagenten die letselschade hebben opgelopen in de uitoefening van hun functie en in conflict zijn met hun werkgever
 
-**Gratis eerste gesprek**
-Een vrijblijvend kennismakingsgesprek zonder ingewikkelde formulieren of verplichtingen, waarbij de cliënt direct eerlijk advies krijgt over de situatie en wat DLSA kan doen
+**Letselschade voor brandweerlieden** — [https://dlsa.nl/jouw-situatie/brandweer](https://dlsa.nl/jouw-situatie/brandweer)
+Juridische bijstand voor brandweerlieden die letselschade hebben opgelopen in de uitoefening van hun functie en in conflict zijn met hun werkgever
+
+**Letselschade voor militairen en veteranen** — [https://dlsa.nl/jouw-situatie/defensie](https://dlsa.nl/jouw-situatie/defensie)
+Juridische bijstand voor militairen, veteranen en andere Defensie-medewerkers die letselschade hebben opgelopen in de uitoefening van hun functie en in conflict zijn met hun werkgever
 ---
 
 ## URL-hiërarchie & clusters
@@ -65,6 +68,10 @@ Gebruik deze structuur voor correcte ouderpage-links en clusterlinks.
 - https://dlsa.nl/info-tips/bewijs/
 
 ## Kennisbronnen (prioriteit hoog → laag)
+
+1. Wetgeving (hoogste prioriteit, conflict-winner):
+- wetten.nl
+- rechtspraak.nl
 
 3. Gebruikersinput: vult aan, overschrijft wetgeving nooit.
 **4. Vertrouwde externe bronnen**
